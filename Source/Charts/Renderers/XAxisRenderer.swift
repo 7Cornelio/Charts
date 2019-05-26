@@ -96,6 +96,10 @@ open class XAxisRenderer: AxisRendererBase
         {
             drawLabels(context: context, pos: viewPortHandler.contentTop + yOffset + xAxis.labelRotatedHeight, anchor: CGPoint(x: 0.5, y: 1.0))
         }
+        else if xAxis.labelPosition == .topInsideReverseAlign
+        {
+            drawLabels(context: context, pos: viewPortHandler.contentTop + yOffset + xAxis.labelRotatedHeight, anchor: CGPoint(x: 0.5, y: 0.0))
+        }
         else if xAxis.labelPosition == .bottom
         {
             drawLabels(context: context, pos: viewPortHandler.contentBottom + yOffset, anchor: CGPoint(x: 0.5, y: 0.0))
@@ -103,6 +107,10 @@ open class XAxisRenderer: AxisRendererBase
         else if xAxis.labelPosition == .bottomInside
         {
             drawLabels(context: context, pos: viewPortHandler.contentBottom - yOffset - xAxis.labelRotatedHeight, anchor: CGPoint(x: 0.5, y: 0.0))
+        }
+        else if xAxis.labelPosition == .bottomInsideReverseAlign
+        {
+            drawLabels(context: context, pos: viewPortHandler.contentBottom - yOffset, anchor: CGPoint(x: 0.5, y: 1.0))
         }
         else
         { // BOTH SIDED
@@ -137,6 +145,7 @@ open class XAxisRenderer: AxisRendererBase
         
         if xAxis.labelPosition == .top
             || xAxis.labelPosition == .topInside
+            || xAxis.labelPosition == .topInsideReverseAlign
             || xAxis.labelPosition == .bothSided
         {
             _axisLineSegmentsBuffer[0].x = viewPortHandler.contentLeft
@@ -148,6 +157,7 @@ open class XAxisRenderer: AxisRendererBase
         
         if xAxis.labelPosition == .bottom
             || xAxis.labelPosition == .bottomInside
+            || xAxis.labelPosition == .bottomInsideReverseAlign
             || xAxis.labelPosition == .bothSided
         {
             _axisLineSegmentsBuffer[0].x = viewPortHandler.contentLeft

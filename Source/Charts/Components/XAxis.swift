@@ -23,6 +23,8 @@ open class XAxis: AxisBase
         case bothSided
         case topInside
         case bottomInside
+        case topInsideReverseAlign
+        case bottomInsideReverseAlign
     }
     
     /// width of the x-axis labels in pixels - this is automatically calculated by the `computeSize()` methods in the renderers

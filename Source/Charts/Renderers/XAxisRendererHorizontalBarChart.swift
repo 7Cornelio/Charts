@@ -89,7 +89,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         {
             drawLabels(context: context, pos: viewPortHandler.contentRight + xoffset, anchor: CGPoint(x: 0.0, y: 0.5))
         }
-        else if xAxis.labelPosition == .topInside
+        else if xAxis.labelPosition == .topInside || xAxis.labelPosition == .topInsideReverseAlign
         {
             drawLabels(context: context, pos: viewPortHandler.contentRight - xoffset, anchor: CGPoint(x: 1.0, y: 0.5))
         }
@@ -97,7 +97,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         {
             drawLabels(context: context, pos: viewPortHandler.contentLeft - xoffset, anchor: CGPoint(x: 1.0, y: 0.5))
         }
-        else if xAxis.labelPosition == .bottomInside
+        else if xAxis.labelPosition == .bottomInside || xAxis.labelPosition == .bottomInsideReverseAlign
         {
             drawLabels(context: context, pos: viewPortHandler.contentLeft + xoffset, anchor: CGPoint(x: 0.0, y: 0.5))
         }
@@ -223,6 +223,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         
         if xAxis.labelPosition == .top ||
             xAxis.labelPosition == .topInside ||
+            xAxis.labelPosition == .topInsideReverseAlign ||
             xAxis.labelPosition == .bothSided
         {
             context.beginPath()
@@ -233,6 +234,7 @@ open class XAxisRendererHorizontalBarChart: XAxisRenderer
         
         if xAxis.labelPosition == .bottom ||
             xAxis.labelPosition == .bottomInside ||
+            xAxis.labelPosition == .bottomInsideReverseAlign ||
             xAxis.labelPosition == .bothSided
         {
             context.beginPath()
